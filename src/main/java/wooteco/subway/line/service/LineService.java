@@ -5,6 +5,8 @@ import wooteco.subway.line.dao.LineDao;
 import wooteco.subway.line.domain.Line;
 import wooteco.subway.line.dto.LineRequest;
 import wooteco.subway.line.dto.LineResponse;
+import wooteco.subway.section.dao.SectionDao;
+import wooteco.subway.section.domain.Section;
 import wooteco.subway.station.dao.StationDao;
 
 import java.util.List;
@@ -14,10 +16,12 @@ import java.util.stream.Collectors;
 public class LineService {
     private final LineDao lineDao;
     private final StationDao stationDao;
+    private final SectionDao sectionDao;
 
-    public LineService(LineDao lineDao, StationDao stationDao) {
+    public LineService(LineDao lineDao, StationDao stationDao, SectionDao sectionDao) {
         this.lineDao = lineDao;
         this.stationDao = stationDao;
+        this.sectionDao = sectionDao;
     }
 
     public LineResponse save(LineRequest lineRequest) {
@@ -25,6 +29,11 @@ public class LineService {
         validateIfDownStationIsEqualToUpStation(lineRequest);
         Line line = lineRequestToLine(lineRequest);
         Line savedLine = lineDao.save(line);
+        sectionDao.save(new Section(savedLine.getId(),
+                lineRequest.getUpStationId(),
+                lineRequest.getDownStationId(),
+                lineRequest.getDistance(),
+                lineRequest.getExtraFare()));
         return new LineResponse(savedLine);
     }
 

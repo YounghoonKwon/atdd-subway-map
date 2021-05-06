@@ -6,12 +6,12 @@ public class LineRequest {
     private Long upStationId;
     private Long downStationId;
     private int distance;
-    private Long extraFare;
+    private int extraFare;
 
     public LineRequest() {
     }
 
-    public LineRequest(String name, String color, Long upStationId, Long downStationId, int distance, Long extraFare) {
+    public LineRequest(String name, String color, Long upStationId, Long downStationId, int distance, int extraFare) {
         this.name = name;
         this.color = color;
         this.upStationId = upStationId;
@@ -40,7 +40,7 @@ public class LineRequest {
         return distance;
     }
 
-    public Long getExtraFare() {
+    public int getExtraFare() {
         return extraFare;
     }
 
