@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 @DisplayName("노선 관련 기능")
 public class LineAcceptanceTest extends AcceptanceTest {
     @Autowired
