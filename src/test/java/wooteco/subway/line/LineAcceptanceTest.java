@@ -130,7 +130,7 @@ public class LineAcceptanceTest extends AcceptanceTest {
         assertThat(response.statusCode()).isEqualTo(HttpStatus.BAD_REQUEST.value());
     }
 
-    @DisplayName("개발 노선을 조회한다.")
+    @DisplayName("개별 노선을 조회한다.")
     @Test
     void getLine() {
         /// given
