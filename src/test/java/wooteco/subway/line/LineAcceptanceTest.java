@@ -12,7 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import wooteco.subway.AcceptanceTest;
 import wooteco.subway.line.dto.LineResponse;
-import wooteco.subway.station.dto.StationResponse;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -63,7 +62,7 @@ public class LineAcceptanceTest extends AcceptanceTest {
 
     @DisplayName("노선 생성 - 실패(상행x)")
     @Test
-    void createLineFailureWhenNoUpstationExists(){
+    void createLineFailureWhenNoUpstationExists() {
         // given
         Map<String, String> params = new HashMap<>();
         params.put("name", "2호선");
@@ -86,7 +85,7 @@ public class LineAcceptanceTest extends AcceptanceTest {
 
     @DisplayName("노선 생성 - 실패(하행x)")
     @Test
-    void createLineFailureWhenNoDownStationExists(){
+    void createLineFailureWhenNoDownStationExists() {
         // given
         Map<String, String> params = new HashMap<>();
         params.put("name", "2호선");
@@ -110,7 +109,7 @@ public class LineAcceptanceTest extends AcceptanceTest {
 
     @DisplayName("노선 생성 - 실패(상행==하행)")
     @Test
-    void createLineFailureWhenDownStationIsSameAsUpstation(){
+    void createLineFailureWhenDownStationIsSameAsUpstation() {
         // given
         Map<String, String> params = new HashMap<>();
         params.put("name", "2호선");
